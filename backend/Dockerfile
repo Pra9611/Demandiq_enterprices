@@ -6,7 +6,9 @@ COPY backend/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY app ./app
+COPY backend/app ./app
+COPY backend/script ./scripts
+COPY backend/spark_jobs ./spark_jobs
 
 EXPOSE 8000
 
