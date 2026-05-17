@@ -6,7 +6,7 @@ router = APIRouter()
 
 
 def load_data():
-    csv_path = Path(__file__).resolve().parents[3] / "data" / "raw" / "retail_demand.csv"
+    csv_path = Path(__file__).resolve().parents[2] / "datasets" / "retail_demand_dataset.csv"
 
     if not csv_path.exists():
         return None, None, None
