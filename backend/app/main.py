@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import forecast, monitoring
+import os
+import subprocess
+
+DATASET_PATH = "datasets/retail_demand_dataset.csv"
+if not os.path.exists(DATASET_PATH):
+    os.makedirs("datasets", exist_ok=True)
+    subprocess.run(["python", "scripts/generate_dataset.py"], check=True)
 
 app = FastAPI(title='DemandIQ Enterprise API', version='1.0.0')
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])
