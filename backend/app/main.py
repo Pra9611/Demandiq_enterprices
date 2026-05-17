@@ -9,10 +9,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATASET_PATH = os.path.join(BASE_DIR, "datasets", "retail_demand_dataset.csv")
 SCRIPT_PATH = os.path.join(BASE_DIR, "scripts", "generate_dataset.py")
 
-if not os.path.exists(DATASET_PATH):
-    os.makedirs(os.path.dirname(DATASET_PATH), exist_ok=True)
-    subprocess.run([sys.executable, SCRIPT_PATH], check=True)
-
 app = FastAPI(title='DemandIQ Enterprise API', version='1.0.0')
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_credentials=True, allow_methods=['*'], allow_headers=['*'])
 app.include_router(forecast.router, prefix='/api/forecast', tags=['Forecast'])
