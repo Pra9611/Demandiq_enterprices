@@ -8,4 +8,4 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.10'}
       - run: pip install -r backend/requirements.txt
-      - run: python -m py_compile backend/app/main.py backend/scripts/generate_dataset.py backend/spark_jobs/retail_etl.py
+      - run: python -m py_compile backend/app/main.py scripts/generate_dataset.py spark_jobs/retail_etl.py
